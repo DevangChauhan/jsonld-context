@@ -2,7 +2,7 @@
   "@context": {
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "epcis": "https://ref.gs1.org/epcis/",
-    "acme": "https://ref.acme.com/voc",
+    "acme": "https://ref.acme.com/voc/",
 
     "rawMaterial": { "@id": "acme:rawMaterial", "@type": "xsd:string" },
     "productionLocation": { "@id": "acme:productionLocation", "@type": "xsd:string" },
