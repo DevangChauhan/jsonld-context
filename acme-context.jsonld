@@ -52,7 +52,6 @@
 
     "conditionOfTheProduct": { "@id": "acme:conditionOfTheProduct", "@type": "xsd:string" },
 
-    "bizStep": { "@id": "epcis:bizStep", "@type": "@id" },
     "producing": { "@id": "acme:producing" },
     "place_on_market": { "@id": "acme:place_on_market" },
     "refurbishing": { "@id": "acme:refurbishing" },
