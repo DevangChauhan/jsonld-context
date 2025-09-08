@@ -1,0 +1,61 @@
+{
+  "@context": {
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "epcis": "https://ref.gs1.org/epcis/",
+    "acme": "https://ref.acme.com/voc",
+
+    "rawMaterial": { "@id": "acme:rawMaterial", "@type": "xsd:string" },
+    "productionLocation": { "@id": "acme:productionLocation", "@type": "xsd:string" },
+
+    "energyConsumptionPerUnit": {
+      "@id": "acme:energyConsumptionPerUnit",
+      "@context": {
+        "value": { "@id": "acme:value", "@type": "xsd:double" },
+        "uom": { "@id": "acme:uom", "@type": "xsd:string" }
+      }
+    },
+    "waterConsumptionPerUnit": {
+      "@id": "acme:waterConsumptionPerUnit",
+      "@context": {
+        "value": { "@id": "acme:value", "@type": "xsd:double" },
+        "uom": { "@id": "acme:uom", "@type": "xsd:string" }
+      }
+    },
+    "co2EmissionsPerUnit": {
+      "@id": "acme:co2EmissionsPerUnit",
+      "@context": {
+        "value": { "@id": "acme:value", "@type": "xsd:double" },
+        "uom": { "@id": "acme:uom", "@type": "xsd:string" }
+      }
+    },
+    "chemicalConsumptionPerUnit": {
+      "@id": "acme:chemicalConsumptionPerUnit",
+      "@context": {
+        "value": { "@id": "acme:value", "@type": "xsd:double" },
+        "uom": { "@id": "acme:uom", "@type": "xsd:string" }
+      }
+    },
+
+    "marketRegion": { "@id": "acme:marketRegion", "@type": "xsd:string" },
+
+    "repairReason": { "@id": "acme:repairReason", "@type": "xsd:string" },
+    "repairAction": { "@id": "acme:repairAction", "@type": "xsd:string" },
+    "repairMaterialsUsed": { "@id": "acme:repairMaterialsUsed", "@type": "xsd:string" },
+    "repairDate": { "@id": "acme:repairDate", "@type": "xsd:dateTime" },
+
+    "refurbishAction": { "@id": "acme:refurbishAction", "@type": "xsd:string" },
+    "refurbishMaterialsUsed": { "@id": "acme:refurbishMaterialsUsed", "@type": "xsd:string" },
+    "refurbishDate": { "@id": "acme:refurbishDate", "@type": "xsd:dateTime" },
+
+    "recycleAction": { "@id": "acme:recycleAction", "@type": "xsd:string" },
+    "recycleDate": { "@id": "acme:recycleDate", "@type": "xsd:dateTime" },
+
+    "conditionOfTheProduct": { "@id": "acme:conditionOfTheProduct", "@type": "xsd:string" },
+
+    "bizStep": { "@id": "epcis:bizStep", "@type": "@id" },
+    "producing": { "@id": "acme:producing" },
+    "place_on_market": { "@id": "acme:place_on_market" },
+    "refurbishing": { "@id": "acme:refurbishing" },
+    "recycling": { "@id": "acme:recycling" }
+  }
+}
