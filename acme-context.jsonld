@@ -55,6 +55,71 @@
     "producing": { "@id": "acme:producing" },
     "place_on_market": { "@id": "acme:place_on_market" },
     "refurbishing": { "@id": "acme:refurbishing" },
-    "recycling": { "@id": "acme:recycling" }
+    "recycling": { "@id": "acme:recycling" },
+
+    "model": { "@id": "acme:model", "@container": "@language" },
+    "recycledContentPercent": { "@id": "acme:recycledContentPercent", "@type": "xsd:double" },
+    "estimatedCO2eManufactureKg": { "@id": "acme:estimatedCO2eManufactureKg", "@type": "xsd:double" },
+    "estimatedWaterUseLiters": { "@id": "acme:estimatedWaterUseLiters", "@type": "xsd:double" },
+    "takeBackProgram": { "@id": "acme:takeBackProgram", "@type": "xsd:boolean" },
+
+    "chemicals": { "@id": "acme:chemicals", "@container": "@language" },
+    "maintenanceInstructions": { "@id": "acme:maintenanceInstructions", "@container": "@language" },
+    "repairInstructions": { "@id": "acme:repairInstructions", "@container": "@language" },
+
+    "manufacturer": {
+      "@id": "acme:manufacturer",
+      "@context": {
+        "name": { "@id": "acme:manufacturerName", "@container": "@language" },
+        "addressCountry": { "@id": "acme:addressCountry", "@type": "xsd:string" },
+        "description": { "@id": "acme:manufacturerDescription", "@container": "@language" }
+      }
+    },
+
+    "additionalImages": {
+      "@id": "acme:additionalImages",
+      "@context": {
+        "fileLanguageCode": { "@id": "acme:fileLanguageCode", "@type": "xsd:string" },
+        "referencedFileURL": { "@id": "acme:referencedFileURL", "@type": "xsd:anyURI" }
+      }
+    },
+
+    "material": {
+      "@id": "acme:material",
+      "@context": {
+        "name": { "@id": "acme:materialName", "@container": "@language" },
+        "materialComposition": { "@id": "acme:materialComposition", "@container": "@language" }
+      }
+    },
+
+    "battery": {
+      "@id": "acme:battery",
+      "@context": {
+        "type": { "@id": "acme:batteryType", "@container": "@language" },
+        "capacity_mAh": { "@id": "acme:capacity_mAh", "@type": "xsd:integer" },
+        "batteryLife": { "@id": "acme:batteryLife", "@container": "@language" }
+      }
+    },
+
+    "display": {
+      "@id": "acme:display",
+      "@context": {
+        "type": { "@id": "acme:displayType", "@container": "@language" },
+        "size_inches": { "@id": "acme:size_inches", "@type": "xsd:double" },
+        "resolution": { "@id": "acme:resolution", "@container": "@language" },
+        "features": { "@id": "acme:features", "@container": "@language" }
+      }
+    },
+
+    "countryOfSale": { "@id": "acme:countryOfSale", "@container": "@language" },
+    "condition": { "@id": "acme:condition", "@container": "@language" },
+
+    "serviceArea": {
+      "@id": "acme:serviceArea",
+      "@context": {
+        "name": { "@id": "acme:serviceAreaName", "@container": "@language" },
+        "url": { "@id": "acme:serviceAreaURL", "@type": "xsd:anyURI" }
+      }
+    }
   }
 }
