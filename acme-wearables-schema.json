@@ -123,7 +123,8 @@
               "additionalProperties": false
             }
           },
-          "required": ["name", "addressCountry"]
+          "required": ["name", "addressCountry"],
+          "additionalProperties": false
         },
         "serviceArea": {
           "type": "array",
