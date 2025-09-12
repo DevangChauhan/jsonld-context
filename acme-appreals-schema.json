@@ -6,8 +6,8 @@
   "type": "object",
   "properties": {
     "@context": {
-      "type": "string",
-      "const": "https://ref.acme.com/apparels.json"
+      "description": "Optional JSON-LD context (not validated)",
+      "type": "string"
     },
     "attributes": {
       "type": "object",
@@ -16,9 +16,7 @@
           "type": "object",
           "description": "Multilingual model identifier",
           "patternProperties": {
-            "^[a-z]{2}$": {
-              "type": "string"
-            }
+            "^[a-z]{2}$": { "type": "string" }
           },
           "additionalProperties": false
         },
@@ -48,9 +46,7 @@
           "items": {
             "type": "object",
             "patternProperties": {
-              "^[a-z]{2}$": {
-                "type": "string"
-              }
+              "^[a-z]{2}$": { "type": "string" }
             },
             "additionalProperties": false
           }
@@ -61,9 +57,7 @@
           "items": {
             "type": "object",
             "patternProperties": {
-              "^[a-z]{2}$": {
-                "type": "string"
-              }
+              "^[a-z]{2}$": { "type": "string" }
             },
             "additionalProperties": false
           }
@@ -74,9 +68,7 @@
           "items": {
             "type": "object",
             "patternProperties": {
-              "^[a-z]{2}$": {
-                "type": "string"
-              }
+              "^[a-z]{2}$": { "type": "string" }
             },
             "additionalProperties": false
           }
@@ -90,9 +82,7 @@
                 "type": "object",
                 "description": "Multilingual manufacturer name",
                 "patternProperties": {
-                  "^[a-z]{2}$": {
-                    "type": "string"
-                  }
+                  "^[a-z]{2}$": { "type": "string" }
                 },
                 "additionalProperties": false
               },
@@ -104,17 +94,12 @@
                 "type": "object",
                 "description": "Multilingual manufacturer description",
                 "patternProperties": {
-                  "^[a-z]{2}$": {
-                    "type": "string"
-                  }
+                  "^[a-z]{2}$": { "type": "string" }
                 },
                 "additionalProperties": false
               }
             },
-            "required": [
-              "name",
-              "addressCountry"
-            ]
+            "required": ["name", "addressCountry"]
           }
         },
         "additionalImages": {
@@ -149,8 +134,5 @@
       }
     }
   },
-  "required": [
-    "@context",
-    "attributes"
-  ]
+  "required": ["attributes"]
 }

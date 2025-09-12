@@ -6,8 +6,8 @@
   "type": "object",
   "properties": {
     "@context": {
-      "type": "string",
-      "const": "https://ref.acme.com/wearables.json"
+      "description": "Optional JSON-LD context (not validated)",
+      "type": "string"
     },
     "attributes": {
       "type": "object",
@@ -20,26 +20,19 @@
               "name": {
                 "type": "object",
                 "patternProperties": {
-                  "^[a-z]{2}$": {
-                    "type": "string"
-                  }
+                  "^[a-z]{2}$": { "type": "string" }
                 },
                 "additionalProperties": false
               },
               "materialComposition": {
                 "type": "object",
                 "patternProperties": {
-                  "^[a-z]{2}$": {
-                    "type": "string"
-                  }
+                  "^[a-z]{2}$": { "type": "string" }
                 },
                 "additionalProperties": false
               }
             },
-            "required": [
-              "name",
-              "materialComposition"
-            ]
+            "required": ["name", "materialComposition"]
           }
         },
         "battery": {
@@ -48,29 +41,20 @@
             "type": {
               "type": "object",
               "patternProperties": {
-                "^[a-z]{2}$": {
-                  "type": "string"
-                }
+                "^[a-z]{2}$": { "type": "string" }
               },
               "additionalProperties": false
             },
-            "capacity_mAh": {
-              "type": "integer"
-            },
+            "capacity_mAh": { "type": "integer" },
             "batteryLife": {
               "type": "object",
               "patternProperties": {
-                "^[a-z]{2}$": {
-                  "type": "string"
-                }
+                "^[a-z]{2}$": { "type": "string" }
               },
               "additionalProperties": false
             }
           },
-          "required": [
-            "type",
-            "capacity_mAh"
-          ]
+          "required": ["type", "capacity_mAh"]
         },
         "display": {
           "type": "object",
@@ -78,21 +62,15 @@
             "type": {
               "type": "object",
               "patternProperties": {
-                "^[a-z]{2}$": {
-                  "type": "string"
-                }
+                "^[a-z]{2}$": { "type": "string" }
               },
               "additionalProperties": false
             },
-            "size_inches": {
-              "type": "number"
-            },
+            "size_inches": { "type": "number" },
             "resolution": {
               "type": "object",
               "patternProperties": {
-                "^[a-z]{2}$": {
-                  "type": "string"
-                }
+                "^[a-z]{2}$": { "type": "string" }
               },
               "additionalProperties": false
             },
@@ -101,26 +79,18 @@
               "items": {
                 "type": "object",
                 "patternProperties": {
-                  "^[a-z]{2}$": {
-                    "type": "string"
-                  }
+                  "^[a-z]{2}$": { "type": "string" }
                 },
                 "additionalProperties": false
               }
             }
           },
-          "required": [
-            "type",
-            "size_inches",
-            "resolution"
-          ]
+          "required": ["type", "size_inches", "resolution"]
         },
         "countryOfSale": {
           "type": "object",
           "patternProperties": {
-            "^[a-z]{2}$": {
-              "type": "string"
-            }
+            "^[a-z]{2}$": { "type": "string" }
           },
           "additionalProperties": false
         },
@@ -129,11 +99,7 @@
           "patternProperties": {
             "^[a-z]{2}$": {
               "type": "string",
-              "enum": [
-                "New",
-                "Used",
-                "Refurbished"
-              ]
+              "enum": ["New", "Used", "Refurbished"]
             }
           },
           "additionalProperties": false
@@ -144,29 +110,20 @@
             "name": {
               "type": "object",
               "patternProperties": {
-                "^[a-z]{2}$": {
-                  "type": "string"
-                }
+                "^[a-z]{2}$": { "type": "string" }
               },
               "additionalProperties": false
             },
-            "addressCountry": {
-              "type": "string"
-            },
+            "addressCountry": { "type": "string" },
             "description": {
               "type": "object",
               "patternProperties": {
-                "^[a-z]{2}$": {
-                  "type": "string"
-                }
+                "^[a-z]{2}$": { "type": "string" }
               },
               "additionalProperties": false
             }
           },
-          "required": [
-            "name",
-            "addressCountry"
-          ]
+          "required": ["name", "addressCountry"]
         },
         "serviceArea": {
           "type": "array",
@@ -176,21 +133,13 @@
               "name": {
                 "type": "object",
                 "patternProperties": {
-                  "^[a-z]{2}$": {
-                    "type": "string"
-                  }
+                  "^[a-z]{2}$": { "type": "string" }
                 },
                 "additionalProperties": false
               },
-              "url": {
-                "type": "string",
-                "format": "uri"
-              }
+              "url": { "type": "string", "format": "uri" }
             },
-            "required": [
-              "name",
-              "url"
-            ]
+            "required": ["name", "url"]
           }
         },
         "repairInstructions": {
@@ -198,9 +147,7 @@
           "items": {
             "type": "object",
             "patternProperties": {
-              "^[a-z]{2}$": {
-                "type": "string"
-              }
+              "^[a-z]{2}$": { "type": "string" }
             },
             "additionalProperties": false
           }
@@ -237,8 +184,5 @@
       }
     }
   },
-  "required": [
-    "@context",
-    "attributes"
-  ]
+  "required": ["attributes"]
 }
