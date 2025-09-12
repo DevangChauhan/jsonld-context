@@ -105,27 +105,41 @@
           "additionalProperties": false
         },
         "manufacturer": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}$": { "type": "string" }
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "description": "Multilingual manufacturer name",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
               },
-              "additionalProperties": false
+              "addressCountry": {
+                "type": "string",
+                "description": "ISO 2-letter country code"
+              },
+              "description": {
+                "type": "object",
+                "description": "Multilingual manufacturer description",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
             },
-            "addressCountry": { "type": "string" },
-            "description": {
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}$": { "type": "string" }
-              },
-              "additionalProperties": false
-            }
-          },
-          "required": ["name", "addressCountry"],
-          "additionalProperties": false
-        },
+            "required": [
+              "name",
+              "addressCountry"
+            ]
+          }
+        },      
         "serviceArea": {
           "type": "array",
           "items": {
