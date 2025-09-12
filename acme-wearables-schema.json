@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ref.acme.com/wearables.json",
+  "title": "Wearable Product Additional Attributes",
+  "description": "Validation schema for wearable product additionalAttributes",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://ref.acme.com/wearables.json"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "material": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "materialComposition": {
+                "type": "object",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "materialComposition"
+            ]
+          }
+        },
+        "battery": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}$": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "capacity_mAh": {
+              "type": "integer"
+            },
+            "batteryLife": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}$": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "type",
+            "capacity_mAh"
+          ]
+        },
+        "display": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}$": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "size_inches": {
+              "type": "number"
+            },
+            "resolution": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}$": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "features": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "type",
+            "size_inches",
+            "resolution"
+          ]
+        },
+        "countryOfSale": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}$": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "condition": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}$": {
+              "type": "string",
+              "enum": [
+                "New",
+                "Used",
+                "Refurbished"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "manufacturer": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}$": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "addressCountry": {
+              "type": "string"
+            },
+            "description": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}$": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "addressCountry"
+          ]
+        },
+        "serviceArea": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          }
+        },
+        "repairInstructions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}$": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalImages": {
+          "type": "array",
+          "description": "List of additional product images",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fileLanguageCode": {
+                "type": "string",
+                "pattern": "^[a-z]{2}$",
+                "description": "Language code of the image metadata (ISO 639-1)"
+              },
+              "referencedFileType": {
+                "type": "string",
+                "enum": ["PRODUCT_IMAGE", "LABEL_IMAGE", "INFOGRAPHIC", "OTHER"]
+              },
+              "referencedFileURL": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL of the additional image file"
+              }
+            },
+            "required": [
+              "fileLanguageCode",
+              "referencedFileURL",
+              "referencedFileType"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "@context",
+    "attributes"
+  ]
+}

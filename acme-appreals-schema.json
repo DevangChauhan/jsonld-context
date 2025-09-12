@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ref.acme.com/apparels.json",
+  "title": "Apparel Product Additional Attributes",
+  "description": "Validation schema for apparel product additionalAttributes",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://ref.acme.com/apparels.json"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "object",
+          "description": "Multilingual model identifier",
+          "patternProperties": {
+            "^[a-z]{2}$": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "recycledContentPercent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of recycled content in the apparel"
+        },
+        "estimatedCO2eManufactureKg": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Estimated carbon footprint (kg CO2e) of manufacturing"
+        },
+        "estimatedWaterUseLiters": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Estimated water use (liters) during production"
+        },
+        "takeBackProgram": {
+          "type": "boolean",
+          "description": "Indicates if a product take-back or recycling program is available"
+        },
+        "chemicals": {
+          "type": "array",
+          "description": "List of chemicals or chemical treatments",
+          "items": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}$": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "maintenanceInstructions": {
+          "type": "array",
+          "description": "Care and maintenance instructions",
+          "items": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}$": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "repairInstructions": {
+          "type": "array",
+          "description": "Repair instructions for the apparel",
+          "items": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}$": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "manufacturer": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "description": "Multilingual manufacturer name",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "addressCountry": {
+                "type": "string",
+                "description": "ISO 2-letter country code"
+              },
+              "description": {
+                "type": "object",
+                "description": "Multilingual manufacturer description",
+                "patternProperties": {
+                  "^[a-z]{2}$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "addressCountry"
+            ]
+          }
+        },
+        "additionalImages": {
+          "type": "array",
+          "description": "List of additional product images",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fileLanguageCode": {
+                "type": "string",
+                "pattern": "^[a-z]{2}$",
+                "description": "Language code of the image metadata (ISO 639-1)"
+              },
+              "referencedFileType": {
+                "type": "string",
+                "enum": ["PRODUCT_IMAGE", "LABEL_IMAGE", "INFOGRAPHIC", "OTHER"]
+              },
+              "referencedFileURL": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL of the additional image file"
+              }
+            },
+            "required": [
+              "fileLanguageCode",
+              "referencedFileURL",
+              "referencedFileType"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "@context",
+    "attributes"
+  ]
+}
