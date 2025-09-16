@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ref.acme.com/fruits-vegetables-schema.json",
+  "title": "Fruits & Vegetables Product Additional Attributes",
+  "description": "Validation schema for fruits and vegetables product additionalAttributes",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "description": "Optional JSON-LD context (not validated)",
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "variety": {
+          "type": "object",
+          "description": "Variety of the fruit or vegetable (e.g., Red Delicious, Alphonso).",
+          "patternProperties": {
+            "^[a-z]{2}$": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "harvestDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when the product was harvested."
+        },
+        "farmingMethod": {
+          "type": "object",
+          "description": "Farming or cultivation method (e.g., Organic, Pesticide-free).",
+          "patternProperties": {
+            "^[a-z]{2}$": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "storageCondition": {
+          "type": "array",
+          "description": "Recommended storage conditions.",
+          "items": {
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}$": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "expiryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Best before or expiry date."
+        },
+        "nutritionalInfo": {
+          "type": "object",
+          "description": "Nutritional information per 100g.",
+          "properties": {
+            "caloriesPer100g": { "type": "number" },
+            "carbohydrates_g": { "type": "number" },
+            "sugars_g": { "type": "number" },
+            "fiber_g": { "type": "number" },
+            "vitaminC_mg": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        "manufacturer": {
+          "type": "array",
+          "description": "Information about the grower, farm, or packer.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "patternProperties": {
+                  "^[a-z]{2}$": { "type": "string" }
+                },
+                "additionalProperties": false
+              },
+              "addressCountry": { "type": "string" },
+              "description": {
+                "type": "object",
+                "patternProperties": {
+                  "^[a-z]{2}$": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": ["name", "addressCountry"],
+            "additionalProperties": false
+          }
+        },
+        "additionalImages": {
+          "type": "array",
+          "description": "Additional product images.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fileLanguageCode": { "type": "string" },
+              "referencedFileType": { "type": "string", "enum": ["PRODUCT_IMAGE"] },
+              "referencedFileURL": { "type": "string", "format": "uri" }
+            },
+            "required": ["fileLanguageCode", "referencedFileType", "referencedFileURL"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["variety", "harvestDate", "farmingMethod"]
+    }
+  },
+  "required": ["attributes"]
+}
